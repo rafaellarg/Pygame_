@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from classes import Pessoa
+from classes import Pessoa, Frutas
 
 largura = 1000
 altura = 600
@@ -16,9 +16,14 @@ fundo_tela = pygame.image.load('img/tela_fundo.jpg')
 fundo_tela = pygame.transform.scale(fundo_tela, (largura,altura))
 
 
-grupo_pessoa = pygame.sprite.Group()
+grupo_Sprites = pygame.sprite.Group()
 pessoa = Pessoa()
-grupo_pessoa.add(pessoa)
+grupo_Sprites.add(pessoa)
+
+for i in range(10):
+    frutas = Frutas()
+    grupo_Sprites.add(frutas)
+
 
 relogio = pygame.time.Clock()
 
@@ -37,8 +42,8 @@ while True:
     # Adicionando a imagem no fundo
     tela.blit(fundo_tela, (0,0))
 
-    grupo_pessoa.update()
-    grupo_pessoa.draw(tela)
+    grupo_Sprites.update()
+    grupo_Sprites.draw(tela)
 
     relogio.tick(30)
 
