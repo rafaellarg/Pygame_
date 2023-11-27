@@ -1,4 +1,4 @@
-# Esse projeto foi feito pelas alunas Anita Pontalti e Rafaella Generoso na disciplina de Design de Software. O jogo chaamda Catch the Fruits, tem como objetivo conseguir pegar o máximo número de frutas possíveis sem encostar nas bombas, quando isso ocorrer o jogo acaba. 
+# Esse projeto foi feito pelas alunas Anita Pontalti e Rafaella Generoso na disciplina de Design de Software. O jogo chamado Catch the Fruits, tem como objetivo conseguir pegar o máximo número de frutas possíveis sem encostar nas bombas, quando isso ocorrer o jogo acaba. 
 
 # Intruções:
 1. Clique na tela de instruções e leia as regras
