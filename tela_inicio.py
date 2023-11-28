@@ -1,5 +1,6 @@
 import pygame
 from configuracoes import GAME, INIT, INSTRUCOES, largura, altura
+from tela_instrucoes import tela_instrucoes
 
 def tela_inicio(tela):
     state = INIT
@@ -15,7 +16,6 @@ def tela_inicio(tela):
     jogar_escuro = pygame.image.load('img/jogar_escuro.png').convert_alpha()
     regras_escuro = pygame.image.load('img/regras_escuro.png').convert_alpha()
 
-
     class Botao(pygame.sprite.Sprite):
         def __init__(self, x, y, imagem, escala):
             pygame.sprite.Sprite.__init__(self)
@@ -30,9 +30,7 @@ def tela_inicio(tela):
     botao_jogar = Botao(450, 430, jogar_claro, 6)
     botao_regras = Botao(900, 430, regras_claro, 6)
 
-    grupo_botoes = pygame.sprite.Group()
-    grupo_botoes.add(botao_jogar)
-    grupo_botoes.add(botao_regras)
+    relogio = pygame.time.Clock()
 
     rodando = True
     while rodando:
@@ -40,17 +38,24 @@ def tela_inicio(tela):
             if event.type == pygame.QUIT:
                 rodando = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if botao_jogar.rect.collidepoint(event.pos):
+                if botao_regras.rect.collidepoint(event.pos):
+                    rodando = False
+                    state = tela_instrucoes(tela)
+                elif botao_jogar.rect.collidepoint(event.pos):
                     rodando = False
                     state = GAME
-                elif botao_regras.rect.collidepoint(event.pos):
-                    rodando = False
-                    state = INSTRUCOES
+
 
         tela.blit(fundo_tela, (0, 0))
+
+        grupo_botoes = pygame.sprite.Group()
+        grupo_botoes.add(botao_jogar)
+        grupo_botoes.add(botao_regras)
         grupo_botoes.draw(tela)
+
+        relogio.tick(30)
         pygame.display.update()
 
     pygame.quit()
-    
+
     return state

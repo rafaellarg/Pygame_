@@ -3,12 +3,11 @@ from pygame.locals import *
 import random
 from classes import Pessoa, Frutas, Bombas
 from assets import load_assets
-from configuracoes import GAME
+from configuracoes import GAME, largura, altura
 from tela_final import tela_final
 
 def tela_jogo(tela):
-    largura = 1000
-    altura = 600
+
 
     aceleracao = 30
 

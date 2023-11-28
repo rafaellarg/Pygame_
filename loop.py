@@ -17,9 +17,9 @@ state = INIT
 while state != QUIT:
     if state == INIT:
         state = tela_inicio(janela)
-    elif state == GAME:
-        state = tela_jogo(janela)
     elif state == INSTRUCOES:
         state = tela_instrucoes(janela)
+    elif state == GAME:
+        state = tela_jogo(janela)
     elif state == GAME_OVER:
         state = tela_final(janela)
