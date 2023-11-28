@@ -13,6 +13,7 @@ def tela_inicio(tela):
     fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
     jogar_claro = pygame.image.load('assets/img/jogar_claro.png').convert_alpha()
     regras_claro = pygame.image.load('assets/img/regras_claro.png').convert_alpha()
+    titulo = pygame.image.load('assets/img/titulo.png').convert_alpha()
 
     jogar_escuro = pygame.image.load('assets/img/jogar_escuro.png').convert_alpha()
     regras_escuro = pygame.image.load('assets/img/regras_escuro.png').convert_alpha()
@@ -37,7 +38,7 @@ def tela_inicio(tela):
     while rodando:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                rodando = False
+                pygame.quit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if botao_regras.rect.collidepoint(event.pos):
                     rodando = False
@@ -48,6 +49,7 @@ def tela_inicio(tela):
 
 
         tela.blit(fundo_tela, (0, 0))
+        tela.blit(titulo, (300, 500))
 
         grupo_botoes = pygame.sprite.Group()
         grupo_botoes.add(botao_jogar)
