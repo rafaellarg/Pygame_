@@ -7,10 +7,10 @@ from configuracoes import GAME, largura, altura
 from tela_final import tela_final
 import time
 
-# audio
-pygame.mixer.init()
-caminho_do_arquivo = 'Audio.mp3'
-som = pygame.mixer.Sound(caminho_do_arquivo)
+# # audio
+# pygame.mixer.init()
+# caminho_do_arquivo = 'Audio.mp3'
+# som = pygame.mixer.Sound(caminho_do_arquivo)
 
 def tela_jogo(tela):
 
@@ -22,9 +22,9 @@ def tela_jogo(tela):
     tela = pygame.display.set_mode((largura, altura))
     pygame.display.set_caption("Catch the Fruits")
 
-    fundo_tela = pygame.image.load('img/tela_fundo.png')
+    fundo_tela = pygame.image.load('assets/img/tela_fundo.png')
     fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
-    bomba_img = pygame.image.load('img/bomba.png')
+    bomba_img = pygame.image.load('assets/img/bomba.png')
     bomba_img = pygame.transform.scale(bomba_img, (60, 60))
 
     grupo_Sprites = pygame.sprite.Group()
@@ -69,9 +69,9 @@ def tela_jogo(tela):
         # Verificando colisão com bombas
         colisao_bomba = pygame.sprite.spritecollide(pessoa, grupo_bombas, True, pygame.sprite.collide_mask)
         if colisao_bomba:
-            som.play()
-            time.sleep(5)
-            pygame.quit()
+            # som.play()
+            # time.sleep(5)
+            # pygame.quit()
             state = tela_final(tela)
             return state
 

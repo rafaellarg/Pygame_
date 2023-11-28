@@ -4,10 +4,10 @@ from jogo import tela_jogo
 
 def tela_instrucoes(tela):
 
-    fundo_tela = pygame.image.load('img/tela_fundo_fosca.png')
+    fundo_tela = pygame.image.load('assets/img/tela_fundo_fosca.png')
     fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
 
-    instrucoes = pygame.image.load('img/tela_instrucoes.png')
+    instrucoes = pygame.image.load('assets/img/tela_instrucoes.png')
     instrucoes = pygame.transform.scale(instrucoes, (600, 500))
 
 

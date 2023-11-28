@@ -5,7 +5,7 @@ from configuracoes import largura_pessoa, altura_pessoa, aceleracao
 class Pessoa(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("img/pessoa.png").convert_alpha()
+        self.image = pygame.image.load("assets/img/pessoa.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (largura_pessoa, altura_pessoa))
         self.rect = self.image.get_rect()
         self.rect.x = 380

@@ -1,6 +1,7 @@
 import pygame
 from configuracoes import GAME, INIT, INSTRUCOES, largura, altura
 from tela_instrucoes import tela_instrucoes
+from jogo import tela_jogo
 
 def tela_inicio(tela):
     state = INIT
@@ -8,13 +9,13 @@ def tela_inicio(tela):
     tela_inicio = pygame.display.set_mode((largura, altura))
     pygame.display.set_caption("Catch the Fruits")
 
-    fundo_tela = pygame.image.load('img/tela_fundo_fosca.png')
+    fundo_tela = pygame.image.load('assets/img/tela_fundo_fosca.png')
     fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
-    jogar_claro = pygame.image.load('img/jogar_claro.png').convert_alpha()
-    regras_claro = pygame.image.load('img/regras_claro.png').convert_alpha()
+    jogar_claro = pygame.image.load('assets/img/jogar_claro.png').convert_alpha()
+    regras_claro = pygame.image.load('assets/img/regras_claro.png').convert_alpha()
 
-    jogar_escuro = pygame.image.load('img/jogar_escuro.png').convert_alpha()
-    regras_escuro = pygame.image.load('img/regras_escuro.png').convert_alpha()
+    jogar_escuro = pygame.image.load('assets/img/jogar_escuro.png').convert_alpha()
+    regras_escuro = pygame.image.load('assets/img/regras_escuro.png').convert_alpha()
 
     class Botao(pygame.sprite.Sprite):
         def __init__(self, x, y, imagem, escala):
@@ -43,7 +44,7 @@ def tela_inicio(tela):
                     state = tela_instrucoes(tela)
                 if botao_jogar.rect.collidepoint(event.pos):
                     rodando = False
-                    state = GAME
+                    state = tela_jogo(tela)
 
 
         tela.blit(fundo_tela, (0, 0))
