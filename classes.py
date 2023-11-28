@@ -1,11 +1,6 @@
 import pygame
 import random
-
-
-largura_pessoa = 225
-altura_pessoa = 245
-
-aceleracao = 10
+from configuracoes import largura_pessoa, altura_pessoa, aceleracao
 
 class Pessoa(pygame.sprite.Sprite):
     def __init__(self):
@@ -55,3 +50,6 @@ class Bombas(pygame.sprite.Sprite):
         if self.rect.y > 600:
             self.rect.y = random.randint(-self.rect.height, -10)
             self.rect.x = random.randint(0, 1000 - self.rect.width)
+
+
+

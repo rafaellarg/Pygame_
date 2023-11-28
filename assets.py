@@ -11,3 +11,4 @@ def load_assets():
         fruta = pygame.transform.scale(fruta,(70,70))
         lista.append(fruta)
     return lista
+
