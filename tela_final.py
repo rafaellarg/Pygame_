@@ -15,6 +15,9 @@ def tela_final(tela):
     reset_escuro = pygame.image.load('assets/img/reset_escuro.png').convert_alpha()
     reset_claro = pygame.image.load('assets/img/reset_claro.png').convert_alpha()
 
+    titulo = pygame.image.load('assets/img/titulo.png').convert_alpha()
+    titulo = pygame.transform.scale(titulo, (650, 400))
+
 
     class Botao(pygame.sprite.Sprite):
         def __init__(self, x, y, imagem, escala):
@@ -49,6 +52,7 @@ def tela_final(tela):
 
 
         tela.blit(fundo_tela, (0, 0))
+        tela.blit(titulo, (350, 50))
         grupo_botoes = pygame.sprite.Group()
         grupo_botoes.add(botao_quit)
         grupo_botoes.add(botao_reset)
