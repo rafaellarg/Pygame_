@@ -41,7 +41,7 @@ def tela_inicio(tela):
                 if botao_regras.rect.collidepoint(event.pos):
                     rodando = False
                     state = tela_instrucoes(tela)
-                elif botao_jogar.rect.collidepoint(event.pos):
+                if botao_jogar.rect.collidepoint(event.pos):
                     rodando = False
                     state = GAME
 
