@@ -1,4 +1,6 @@
 import pygame 
+from os import path
+import os
 
 def load_assets():
     nomes = [
@@ -11,4 +13,9 @@ def load_assets():
         fruta = pygame.transform.scale(fruta,(70,70))
         lista.append(fruta)
     return lista
+
+pygame.mixer.init()
+
+SND_DIR = path.join(path.dirname(__file__), 'assets', 'audios')
+audio = pygame.mixer.Sound(os.path.join(SND_DIR, 'Audio.mp3'))
 

@@ -6,14 +6,9 @@ from assets import load_assets
 from configuracoes import GAME, largura, altura
 from tela_final import tela_final
 import time
-
-# # audio
-# pygame.mixer.init()
-# caminho_do_arquivo = 'Audio.mp3'
-# som = pygame.mixer.Sound(caminho_do_arquivo)
+from assets import audio
 
 def tela_jogo(tela):
-
 
     aceleracao = 30
 
@@ -36,10 +31,9 @@ def tela_jogo(tela):
 
     lista_frutas = load_assets()
 
-    # Pontuação inicial
+   
     pontuacao = 0
 
-    # Fonte para exibir a pontuação
     fonte = pygame.font.Font(None, 36)
 
     for i in range(10):
@@ -55,7 +49,6 @@ def tela_jogo(tela):
 
     relogio = pygame.time.Clock()
 
-    # Criando o loop principal do jogo
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -66,28 +59,22 @@ def tela_jogo(tela):
                 if event.key == pygame.K_LEFT:
                     pessoa.rect.x -= aceleracao
 
-        # Verificando colisão com bombas
         colisao_bomba = pygame.sprite.spritecollide(pessoa, grupo_bombas, True, pygame.sprite.collide_mask)
         if colisao_bomba:
-            # som.play()
-            # time.sleep(5)
-            # pygame.quit()
+            audio.play()
             state = tela_final(tela)
             return state
 
-        # Verificando colisão com frutas
+
         colisao_fruta = pygame.sprite.spritecollide(pessoa, grupo_frutas, True, pygame.sprite.collide_mask)
         if colisao_fruta:
             pontuacao += 1
 
-        # Adicionando a imagem no fundo
         tela.blit(fundo_tela, (0, 0))
 
-        # Atualizando e desenhando sprites na tela
         grupo_Sprites.update()
         grupo_Sprites.draw(tela)
 
-        # Exibindo pontuação na tela
         texto_pontuacao = fonte.render(f'Pontuação: {pontuacao}', True, (255, 255,255, 255))
         tela.blit(texto_pontuacao, (10, 10))
 
