@@ -56,6 +56,4 @@ def tela_inicio(tela):
         relogio.tick(30)
         pygame.display.update()
 
-    pygame.quit()
-
     return state

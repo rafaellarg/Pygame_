@@ -30,5 +30,6 @@ def tela_instrucoes(screen):
         
 
         pygame.display.flip()
+        pygame.quit()
 
     return state
