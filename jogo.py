@@ -38,7 +38,7 @@ def tela_jogo(tela):
 
     for i in range(10):
         contador = random.randint(0, 100)
-        if contador < 80:
+        if contador < 70:
             fruta = Frutas(random.choice(lista_frutas))
             grupo_frutas.add(fruta)
             grupo_Sprites.add(fruta)

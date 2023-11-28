@@ -14,6 +14,7 @@ def tela_inicio(tela):
     jogar_claro = pygame.image.load('assets/img/jogar_claro.png').convert_alpha()
     regras_claro = pygame.image.load('assets/img/regras_claro.png').convert_alpha()
     titulo = pygame.image.load('assets/img/titulo.png').convert_alpha()
+    titulo = pygame.transform.scale(titulo, (650, 400))
 
     jogar_escuro = pygame.image.load('assets/img/jogar_escuro.png').convert_alpha()
     regras_escuro = pygame.image.load('assets/img/regras_escuro.png').convert_alpha()
@@ -49,7 +50,7 @@ def tela_inicio(tela):
 
 
         tela.blit(fundo_tela, (0, 0))
-        tela.blit(titulo, (300, 500))
+        tela.blit(titulo, (350, 50))
 
         grupo_botoes = pygame.sprite.Group()
         grupo_botoes.add(botao_jogar)
