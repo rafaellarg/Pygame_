@@ -59,9 +59,12 @@ def tela_jogo(tela):
                 if event.key == pygame.K_LEFT:
                     pessoa.rect.x -= aceleracao
 
+
         colisao_bomba = pygame.sprite.spritecollide(pessoa, grupo_bombas, True, pygame.sprite.collide_mask)
         if colisao_bomba:
             audio.play()
+            som_length = audio.get_length()
+            pygame.time.wait(int(som_length * 1000))
             state = tela_final(tela)
             return state
 
