@@ -1,7 +1,8 @@
 import pygame
 from configuracoes import GAME, INIT, largura, altura
 
-def tela_final(tela):
+
+def tela_final(tela): 
 
     tela_final = pygame.display.set_mode((largura, altura))
     pygame.display.set_caption("Catch the Fruits")
