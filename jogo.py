@@ -5,9 +5,10 @@ from classes import Pessoa, Frutas, Bombas
 from assets import load_assets
 from configuracoes import GAME, largura, altura
 from tela_final import tela_final
+import time
 
+# audio
 pygame.mixer.init()
-
 caminho_do_arquivo = 'Audio.mp3'
 som = pygame.mixer.Sound(caminho_do_arquivo)
 
@@ -69,6 +70,7 @@ def tela_jogo(tela):
         colisao_bomba = pygame.sprite.spritecollide(pessoa, grupo_bombas, True, pygame.sprite.collide_mask)
         if colisao_bomba:
             som.play()
+            time.sleep(5)
             pygame.quit()
             state = tela_final(tela)
             return state
