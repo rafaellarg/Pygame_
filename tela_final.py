@@ -1,20 +1,19 @@
 import pygame
-from configuracoes import GAME, INSTRUCOES
+from configuracoes import GAME, INIT, largura, altura
 
-def tela_final(screen):
-    largura = 1000
-    altura = 600
+def tela_final(tela):
 
-    tela_inicio = pygame.display.set_mode((largura, altura))
+    tela_final = pygame.display.set_mode((largura, altura))
     pygame.display.set_caption("Catch the Fruits")
 
     fundo_tela = pygame.image.load('assets/img/tela_fundo_fosca.png')
     fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
-    jogar_claro = pygame.image.load('assets/img/jogar_claro.png').convert_alpha()
-    regras_claro = pygame.image.load('assets/img/regras_claro.png').convert_alpha()
+    quit_claro = pygame.image.load('assets/img/quit_claro.png').convert_alpha()
+    quit_claro = pygame.image.load('assets/img/quit_claro.png').convert_alpha()
 
-    jogar_escuro = pygame.image.load('assets/img/jogar_escuro.png').convert_alpha()
-    regras_escuro = pygame.image.load('assets/img/regras_escuro.png').convert_alpha()
+    quit_escuro = pygame.image.load('assets/img/quit_escuro.png').convert_alpha()
+    reset_escuro = pygame.image.load('assets/img/reset_escuro.png').convert_alpha()
+    reset_claro = pygame.image.load('assets/img/reset_claro.png').convert_alpha()
 
 
     class Botao(pygame.sprite.Sprite):
@@ -28,16 +27,10 @@ def tela_final(screen):
             self.rect = self.image.get_rect()
             self.rect.center = (x, y)
 
-        def desenha(self):
-            tela_inicio.blit(self.image, self.rect.topleft)
+    botao_quit = Botao(320, 689, quit_claro, 6)
+    botao_reset = Botao(900, 710, reset_claro, 6)
 
-
-    botao_jogar = Botao(450, 430, jogar_claro, 6)
-    botao_regras = Botao(900, 430, regras_claro, 6)
-
-    grupo_botoes = pygame.sprite.Group()
-    grupo_botoes.add(botao_jogar)
-    grupo_botoes.add(botao_regras)
+    relogio = pygame.time.Clock()
 
     rodando = True
     while rodando:
@@ -45,19 +38,23 @@ def tela_final(screen):
             if event.type == pygame.QUIT:
                 rodando = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if botao_jogar.rect.collidepoint(event.pos):
+                if botao_quit.rect.collidepoint(event.pos):
+                    botao_quit.imagem = quit_escuro
+                    state = pygame.quit()
+                    rodando = False
+                if botao_reset.rect.collidepoint(event.pos):
+                    botao_reset.imagem = reset_escuro
                     rodando = False
                     state = GAME
-                elif botao_regras.rect.collidepoint(event.pos):
-                    # state = INSTRUCOES
-                    rodando = False
 
-        tela_inicio.blit(fundo_tela, (0, 0))
 
-        grupo_botoes.draw(tela_inicio)
+        tela.blit(fundo_tela, (0, 0))
+        grupo_botoes = pygame.sprite.Group()
+        grupo_botoes.add(botao_quit)
+        grupo_botoes.add(botao_reset)
+        grupo_botoes.draw(tela)
 
+        relogio.tick(30)
         pygame.display.update()
-
-    pygame.quit()
 
     return state
