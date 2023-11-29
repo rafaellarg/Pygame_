@@ -1,8 +1,10 @@
+# Importando bibliotecas e arquivos necessários
 import pygame 
 from os import path
 import os
 from configuracoes import largura, altura
 
+# Funcao que carrega as imagens de frutas
 def load_assets():
     nomes = [
         'melancia', 'abacaxi', 'amora', 'banana',
@@ -17,6 +19,7 @@ def load_assets():
 
 pygame.mixer.init()
 
+# Carregando as imagens que serão utilizadas no jogo ao longo das telas
 fundo_tela = pygame.image.load('assets/img/tela_fundo.png')
 fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
 bomba_img = pygame.image.load('assets/img/bomba.png')

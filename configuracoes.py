@@ -1,3 +1,4 @@
+# Definie elementos básicos de referêcia
 largura = 1000
 altura = 600
 
