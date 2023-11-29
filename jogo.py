@@ -3,7 +3,7 @@ from pygame.locals import *
 import random
 from classes import Pessoa, Frutas, Bombas
 from assets import load_assets
-from configuracoes import GAME, largura, altura, aceleracao
+from configuracoes import GAME, largura, altura, aceleracao, min_frutas
 from tela_final import tela_final
 import time
 from assets import audio, fundo_tela, bomba_img
@@ -36,7 +36,7 @@ def tela_jogo(tela):
 
     for i in range(10):
         contador = random.randint(0, 100)
-        if contador < 70:
+        if contador < 50:
             fruta = Frutas(random.choice(lista_frutas))
             grupo_frutas.add(fruta)
             grupo_Sprites.add(fruta)
@@ -48,6 +48,11 @@ def tela_jogo(tela):
     relogio = pygame.time.Clock()
 
     while True:
+        while len(grupo_frutas) < min_frutas:
+            fruta = Frutas(random.choice(lista_frutas))
+            grupo_frutas.add(fruta)
+            grupo_Sprites.add(fruta)
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -79,7 +84,7 @@ def tela_jogo(tela):
         texto_pontuacao = fonte.render(f'Pontuação: {pontuacao}', True, (255, 255,255, 255))
         tela.blit(texto_pontuacao, (10, 10))
 
-        relogio.tick(30)
+        relogio.tick(40)
 
         pygame.display.update()
 

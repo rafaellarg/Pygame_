@@ -5,6 +5,8 @@ altura = 600
 largura_pessoa = 225
 altura_pessoa = 245
 
+min_frutas = 10
+
 aceleracao = 30
 
 

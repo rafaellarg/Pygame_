@@ -38,7 +38,7 @@ def tela_inicio(tela):
         grupo_botoes.add(botao_regras)
         grupo_botoes.draw(tela)
 
-        relogio.tick(30)
+        relogio.tick(40)
         pygame.display.update()
 
     return state
