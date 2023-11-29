@@ -55,4 +55,8 @@ instrucoes = pygame.transform.scale(instrucoes, (600, 500))
 
 SND_DIR = path.join(path.dirname(__file__), 'assets', 'audios')
 audio = pygame.mixer.Sound(os.path.join(SND_DIR, 'audio2.mp3'))
+audiofrutas = pygame.mixer.Sound(os.path.join(SND_DIR, 'audiofrutas.mp3'))
+
+
+
 
