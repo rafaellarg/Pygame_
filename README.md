@@ -16,3 +16,5 @@ O arquivo "tela_instrucoes.py" cria a tela de instruções que exlica sobre as r
 O arquivo "configuracoes.py" define a altura e largula da tela do jogo, da pessoa e define a aceleracao do menino;
 O arquivo "classes.py" cria as classes do menino, das bombas e das frutas;
 FALTA FALAR DISSO ARQUIVO JOGO.PY ASSETS.PY LOOP.PY
+
+link para vídeo da demonstração do jogo: https://youtu.be/vDqWFHRKXJI?si=QNYcomCpVFgjaWJG
