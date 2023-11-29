@@ -3,14 +3,12 @@ from pygame.locals import *
 import random
 from classes import Pessoa, Frutas, Bombas
 from assets import load_assets
-from configuracoes import GAME, largura, altura
+from configuracoes import GAME, largura, altura, aceleracao
 from tela_final import tela_final
 import time
-from assets import audio
+from assets import audio, fundo_tela, bomba_img
 
 def tela_jogo(tela):
-
-    aceleracao = 30
 
     pygame.init()
 

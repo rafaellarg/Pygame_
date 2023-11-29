@@ -51,5 +51,16 @@ class Bombas(pygame.sprite.Sprite):
             self.rect.y = random.randint(-self.rect.height, -10)
             self.rect.x = random.randint(0, 1000 - self.rect.width)
 
+class Botao(pygame.sprite.Sprite):
+    def __init__(self, x, y, imagem, escala):
+        pygame.sprite.Sprite.__init__(self)
+        largura = imagem.get_width()
+        altura = imagem.get_height()
+        nova_largura = int(largura * escala)
+        nova_altura = int(altura * escala)
+        self.image = pygame.transform.scale(imagem, (nova_largura, nova_altura))
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
 
 

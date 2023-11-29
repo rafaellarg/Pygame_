@@ -1,16 +1,9 @@
 import pygame
 from configuracoes import GAME, INSTRUCOES, QUIT, largura, altura
 from jogo import tela_jogo
+from assets import fundo_tela_fosca, instrucoes
 
 def tela_instrucoes(tela):
-
-    fundo_tela = pygame.image.load('assets/img/tela_fundo_fosca.png')
-    fundo_tela = pygame.transform.scale(fundo_tela, (largura, altura))
-
-    instrucoes = pygame.image.load('assets/img/tela_instrucoes.png')
-    instrucoes = pygame.transform.scale(instrucoes, (600, 500))
-
-
     running = True
     while running:
         for event in pygame.event.get():
@@ -21,7 +14,7 @@ def tela_instrucoes(tela):
                 running = False
                 state = tela_jogo(tela)
 
-        tela.blit(fundo_tela, (0,0))
+        tela.blit(fundo_tela_fosca, (0,0))
 
         tela.blit(instrucoes, (210, 50))
         

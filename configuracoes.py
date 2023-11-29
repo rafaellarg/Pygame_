@@ -5,7 +5,7 @@ altura = 600
 largura_pessoa = 225
 altura_pessoa = 245
 
-aceleracao = 10
+aceleracao = 30
 
 
 INIT = 0
