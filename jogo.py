@@ -7,7 +7,7 @@ from assets import load_assets
 from configuracoes import GAME, largura, altura, aceleracao, min_frutas
 from tela_final import tela_final
 import time
-from assets import audio, fundo_tela, bomba_img
+from assets import audio, fundo_tela, bomba_img, audiofrutas
 
 # Função que irá criar a tela principal de jogo
 def tela_jogo(tela):
@@ -98,6 +98,8 @@ def tela_jogo(tela):
         # Verifica se houve colisão com alguma fruta
         colisao_fruta = pygame.sprite.spritecollide(pessoa, grupo_frutas, True, pygame.sprite.collide_mask)
         if colisao_fruta:
+            # Toca aúdio
+            audiofrutas.play()
             # Pontuação aumenta um ponto
             pontuacao += 1
 
